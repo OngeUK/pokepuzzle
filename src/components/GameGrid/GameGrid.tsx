@@ -1,26 +1,27 @@
 import { useEffect } from "preact/hooks";
-import { hasSolvedPuzzle } from "../../state/game";
+import { hasSolvedPuzzle, selectedImage } from "../../state/game";
 import {
 	blankTileId,
 	currentTileOrder,
+	gridSize,
 	gridTileCount,
 } from "../../state/puzzle";
+import { fireConfetti } from "../../utils/confetti";
 import { isPuzzleSolved } from "../../utils/isPuzzleSolved";
-import { randomiseGridOrder } from "../../utils/randomiseGridOrder";
+import { easy, hard, veryEasy } from "../../utils/puzzleOptions";
+import { randomiseArray } from "../../utils/randomiseArray";
 import { setActiveTiles } from "../../utils/setActiveTiles";
 import { PuzzleTile } from "../PuzzleTile/PuzzleTile";
 import "./GameGrid.css";
 
 export const GameGrid = () => {
 	useEffect(() => {
-		// Initialise puzzle
-		randomiseGridOrder();
-		setActiveTiles(gridTileCount.value);
-	}, []);
-
-	useEffect(() => {
 		hasSolvedPuzzle.value = isPuzzleSolved();
 	}, [currentTileOrder.value]);
+
+	useEffect(() => {
+		if (hasSolvedPuzzle.value) fireConfetti();
+	}, [hasSolvedPuzzle.value]);
 
 	const order = currentTileOrder.value;
 
@@ -41,26 +42,42 @@ export const GameGrid = () => {
 
 	return (
 		<>
-			<div class="game-grid">{gridItems}</div>
+			<div
+				data-size={gridSize.value[0]}
+				data-image={selectedImage.value}
+				class="game-grid"
+			>
+				{gridItems}
+			</div>
 			<br />
 			<br />
 			<button
 				onClick={() => {
-					randomiseGridOrder();
+					currentTileOrder.value = veryEasy;
 					setActiveTiles(gridTileCount.value);
 				}}
 			>
-				Randomise Grid
+				Very easy
 			</button>
 			<br />
 			<button
 				onClick={() => {
-					currentTileOrder.value = [1, 2, 3, 4, 8, 5, 7, 6, 9];
+					currentTileOrder.value = randomiseArray(easy)[0];
 					setActiveTiles(gridTileCount.value);
 				}}
 			>
-				Very easy Grid
+				Easy
 			</button>
+			<br />
+			<button
+				onClick={() => {
+					currentTileOrder.value = randomiseArray(hard)[0];
+					setActiveTiles(gridTileCount.value);
+				}}
+			>
+				Hard
+			</button>
+			<br />
 			<div>{currentTileOrder.value}</div>
 			{hasSolvedPuzzle.value && <div>PUZZLE SOLVED!</div>}
 		</>

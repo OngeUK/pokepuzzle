@@ -1,6 +1,5 @@
 import { computed, signal } from "@preact/signals";
 
-export const currentTileOrder = signal<number[] | null>(null);
 export const gridSize = signal<[number, number]>([3, 3]);
 
 export const gridTileCount = computed(() => {
@@ -19,3 +18,7 @@ export const correctTitleOrder = computed(() => {
 export const blankTileId = signal(gridTileCount.value);
 
 export const activeTiles = signal<number[] | null>(null);
+
+export const currentTileOrder = signal<number[] | null>(
+	correctTitleOrder.value
+);

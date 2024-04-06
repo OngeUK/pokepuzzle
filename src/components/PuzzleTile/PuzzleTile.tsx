@@ -32,10 +32,15 @@ export const PuzzleTile = ({
 		currentTileOrder.value = currOrder;
 	};
 
-	const cssClass =
-		isHiddenTile && !hasSolvedPuzzle.value
-			? { class: "puzzle-tile_hidden" }
-			: {};
+	const cssClass = {
+		class: `puzzle-tile${
+			isHiddenTile && !hasSolvedPuzzle.value
+				? " puzzle-tile_hidden"
+				: hasSolvedPuzzle.value
+				? " puzzle-tile_reveal"
+				: ""
+		}`,
+	};
 
 	const disabledState =
 		hasSolvedPuzzle.value || !activeTiles.value?.includes(currentPosition)
@@ -44,11 +49,12 @@ export const PuzzleTile = ({
 
 	return (
 		<button
+			data-id={correctPosition}
 			onClick={() => moveTile(currentPosition, correctPosition)}
 			{...cssClass}
 			{...disabledState}
 		>
-			<big>{correctPosition}</big>
+			{/* <big>{correctPosition}</big> */}
 			{/* <br />
 			Curr: {currentPosition} */}
 		</button>
