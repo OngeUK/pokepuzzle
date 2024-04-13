@@ -6,11 +6,9 @@ import "./PuzzleTile.css";
 export const PuzzleTile = ({
 	currentPosition,
 	correctPosition,
-	isHiddenTile,
 }: {
 	currentPosition: number;
 	correctPosition: number;
-	isHiddenTile: boolean;
 }) => {
 	const moveTile = (currentPosition: number, correctPosition: number) => {
 		if (!currentTileOrder.value || !activeTiles.value) return;
@@ -34,11 +32,7 @@ export const PuzzleTile = ({
 
 	const cssClass = {
 		class: `puzzle-tile${
-			isHiddenTile && !hasSolvedPuzzle.value
-				? " puzzle-tile_hidden"
-				: hasSolvedPuzzle.value
-				? " puzzle-tile_reveal"
-				: ""
+			hasSolvedPuzzle.value ? " puzzle-tile_reveal" : ""
 		}`,
 	};
 
@@ -53,10 +47,6 @@ export const PuzzleTile = ({
 			onClick={() => moveTile(currentPosition, correctPosition)}
 			{...cssClass}
 			{...disabledState}
-		>
-			{/* <big>{correctPosition}</big> */}
-			{/* <br />
-			Curr: {currentPosition} */}
-		</button>
+		/>
 	);
 };

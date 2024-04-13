@@ -1,46 +1,42 @@
 .puzzle-tile {
 	--outline-size: 1px;
-	--transition: linear 300ms;
-	/* Add a transition delay */
+	/* --transition: 250ms ease-in 350ms; */
 
-	appearance: none;
-	border: 0;
-	border-radius: 0;
-	box-sizing: border-box;
-	opacity: 1;
 	outline-color: var(--grid-lines-colour);
 	outline-offset: calc(0px - var(--outline-size));
 	outline-style: solid;
 	outline-width: var(--outline-size);
-	padding: 0;
-	transition: outline-color var(--transition);
-	/* transition: outline-color var(--transition), opacity var(--transition); */
+	/* transition: outline-color var(--transition); */
 }
 
 .puzzle-tile_reveal {
 	outline-color: transparent;
 }
 
-/* The transition doesn't work when this class gets removed */
-.puzzle-tile_hidden {
+.puzzle-tile[data-id="9"] {
 	opacity: 0;
+	/* transition: opacity var(--transition); */
+
+	&.puzzle-tile_reveal {
+		opacity: 1;
+	}
 }
 
 /* Tile backgrounds */
 [data-image="1"] .puzzle-tile {
-	background-image: url("./../../assets/1.svg");
+	background-image: url("./../../assets/images/1.svg");
 }
 [data-image="2"] .puzzle-tile {
-	background-image: url("./../../assets/2.svg");
+	background-image: url("./../../assets/images/2.svg");
 }
 [data-image="3"] .puzzle-tile {
-	background-image: url("./../../assets/3.svg");
+	background-image: url("./../../assets/images/3.svg");
 }
 [data-image="4"] .puzzle-tile {
-	background-image: url("./../../assets/4.svg");
+	background-image: url("./../../assets/images/4.svg");
 }
 [data-image="5"] .puzzle-tile {
-	background-image: url("./../../assets/5.svg");
+	background-image: url("./../../assets/images/5.svg");
 }
 
 /* Tile background positions */

@@ -19,6 +19,4 @@ export const blankTileId = signal(gridTileCount.value);
 
 export const activeTiles = signal<number[] | null>(null);
 
-export const currentTileOrder = signal<number[] | null>(
-	correctTitleOrder.value
-);
+export const currentTileOrder = signal<number[]>(correctTitleOrder.value);

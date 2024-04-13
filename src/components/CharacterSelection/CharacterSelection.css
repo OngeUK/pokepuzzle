@@ -1,0 +1,21 @@
+.character-items {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: var(--item-spacing);
+	height: max-content;
+	width: 100%;
+}
+
+.character-btn {
+	appearance: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	display: block;
+	width: calc(50% - (var(--item-spacing) / 2));
+
+	& > * {
+		pointer-events: none;
+	}
+}

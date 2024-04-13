@@ -1,5 +1,4 @@
 // Confetti.js.org
-
 export const fireConfetti = () => {
 	const duration = 8 * 1000,
 		animationEnd = Date.now() + duration,

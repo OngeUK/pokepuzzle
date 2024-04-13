@@ -1,5 +1,9 @@
 import { signal } from "@preact/signals";
 
-export const hasSolvedPuzzle = signal(false);
+export const hasSolvedPuzzle = signal(true);
 
-export const selectedImage = signal(1);
+export const selectedImage = signal<number | null>(null);
+
+export const isGameActive = signal(false);
+
+export const showOptions = signal(true);
