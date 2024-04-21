@@ -9,3 +9,13 @@
 	position: relative;
 	width: 100%;
 }
+
+.container_full .puzzle-image {
+	view-transition-name: puzzle-image;
+}
+
+::view-transition-old(puzzle-image),
+::view-transition-new(puzzle-image) {
+	animation-delay: 100ms;
+	animation-duration: 0; // TODO for back to home
+}

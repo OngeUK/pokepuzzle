@@ -23,6 +23,7 @@ export const PuzzleImage = ({
 
 	return (
 		<div
+			id={`img-${imageId}`}
 			data-size={gridSize.value[0]}
 			data-image={imageId}
 			class="puzzle-image"

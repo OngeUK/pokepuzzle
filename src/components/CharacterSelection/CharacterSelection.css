@@ -1,3 +1,21 @@
+@keyframes add-shadow {
+	to {
+		box-shadow: 0 8px 6px -6px var(--pokemon-dark-blue);
+	}
+}
+
+.character-heading {
+	animation: add-shadow linear both;
+	animation-timeline: scroll();
+	animation-range: 1.5rem 3rem;
+	background-color: var(--pokemon-yellow);
+	box-shadow: 0 8px 6px -6px var(--pokemon-yellow);
+	margin: 1rem -0.5rem;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
 .character-items {
 	display: flex;
 	flex-direction: row;

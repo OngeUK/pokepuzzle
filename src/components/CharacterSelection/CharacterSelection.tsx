@@ -1,5 +1,6 @@
 import { CHARACTER_COUNT } from "../../consts/characters";
 import { selectedImage, showOptions } from "../../state/game";
+import { handleViewTransition } from "../../utils/handleViewTransition";
 import { PuzzleImage } from "../PuzzleImage/PuzzleImage";
 import "./CharacterSelection.css";
 
@@ -11,8 +12,15 @@ export const CharacterSelection = () => {
 			<button
 				class="character-btn"
 				onClick={() => {
-					showOptions.value = true;
-					selectedImage.value = i;
+					const imgElement = document.getElementById(`img-${i}`)!;
+					handleViewTransition(
+						() => {
+							showOptions.value = true;
+							selectedImage.value = i;
+						},
+						imgElement,
+						"puzzle-image"
+					);
 				}}
 			>
 				<PuzzleImage imageId={i} />
@@ -21,9 +29,11 @@ export const CharacterSelection = () => {
 	}
 
 	return (
-		<nav>
-			<h1>Select character</h1>
-			<div class="character-items">{options}</div>
-		</nav>
+		<>
+			<h1 class="character-heading">Select character</h1>
+			<nav>
+				<div class="character-items">{options}</div>
+			</nav>
+		</>
 	);
 };

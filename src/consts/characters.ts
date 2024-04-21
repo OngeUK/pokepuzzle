@@ -1,1 +1,1 @@
-export const CHARACTER_COUNT = 5;
+export const CHARACTER_COUNT = 16;

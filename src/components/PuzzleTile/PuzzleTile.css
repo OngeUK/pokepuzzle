@@ -1,12 +1,10 @@
 .puzzle-tile {
 	--outline-size: 1px;
-	/* --transition: 250ms ease-in 350ms; */
 
 	outline-color: var(--grid-lines-colour);
 	outline-offset: calc(0px - var(--outline-size));
 	outline-style: solid;
 	outline-width: var(--outline-size);
-	/* transition: outline-color var(--transition); */
 }
 
 .puzzle-tile_reveal {
@@ -15,7 +13,6 @@
 
 .puzzle-tile[data-id="9"] {
 	opacity: 0;
-	/* transition: opacity var(--transition); */
 
 	&.puzzle-tile_reveal {
 		opacity: 1;
@@ -37,6 +34,39 @@
 }
 [data-image="5"] .puzzle-tile {
 	background-image: url("./../../assets/images/5.svg");
+}
+[data-image="6"] .puzzle-tile {
+	background-image: url("./../../assets/images/6.svg");
+}
+[data-image="7"] .puzzle-tile {
+	background-image: url("./../../assets/images/7.svg");
+}
+[data-image="8"] .puzzle-tile {
+	background-image: url("./../../assets/images/8.svg");
+}
+[data-image="9"] .puzzle-tile {
+	background-image: url("./../../assets/images/9.svg");
+}
+[data-image="10"] .puzzle-tile {
+	background-image: url("./../../assets/images/10.svg");
+}
+[data-image="11"] .puzzle-tile {
+	background-image: url("./../../assets/images/11.svg");
+}
+[data-image="12"] .puzzle-tile {
+	background-image: url("./../../assets/images/12.svg");
+}
+[data-image="13"] .puzzle-tile {
+	background-image: url("./../../assets/images/13.svg");
+}
+[data-image="14"] .puzzle-tile {
+	background-image: url("./../../assets/images/14.svg");
+}
+[data-image="15"] .puzzle-tile {
+	background-image: url("./../../assets/images/15.svg");
+}
+[data-image="16"] .puzzle-tile {
+	background-image: url("./../../assets/images/16.svg");
 }
 
 /* Tile background positions */
@@ -67,4 +97,56 @@
 	&[data-id="9"] {
 		background-position: 100% 100%;
 	}
+}
+
+@keyframes slide-up {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-100%);
+	}
+}
+
+@keyframes slide-down {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(100%);
+	}
+}
+
+@keyframes slide-left {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes slide-right {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+::view-transition-old(puzzle-tile-up) {
+	animation-name: slide-up;
+}
+
+::view-transition-old(puzzle-tile-down) {
+	animation-name: slide-down;
+}
+
+::view-transition-old(puzzle-tile-right) {
+	animation-name: slide-right;
+}
+
+::view-transition-old(puzzle-tile-left) {
+	animation-name: slide-left;
 }

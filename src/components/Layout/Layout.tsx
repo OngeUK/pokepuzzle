@@ -2,6 +2,7 @@ import { batch } from "@preact/signals";
 import type { FunctionComponent } from "preact";
 import { isGameActive, showOptions } from "../../state/game";
 import { currentTileOrder, gridTileCount } from "../../state/puzzle";
+import { handleViewTransition } from "../../utils/handleViewTransition";
 import { easy, hard, veryEasy } from "../../utils/puzzleOptions";
 import { resetGame } from "../../utils/resetGame";
 import { setActiveTiles } from "../../utils/setActiveTiles";
@@ -12,7 +13,10 @@ export const Layout: FunctionComponent = ({ children }) => {
 	return (
 		<div class="layout-grid">
 			<nav>
-				<button class="back-btn" onClick={resetGame}>
+				<button
+					class="back-btn"
+					onClick={() => handleViewTransition(() => resetGame())}
+				>
 					⌂<small>Home</small>
 				</button>
 			</nav>
