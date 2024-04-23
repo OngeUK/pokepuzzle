@@ -1,21 +1,27 @@
 .puzzle-tile {
 	--outline-size: 1px;
 
-	outline-color: var(--grid-lines-colour);
+	outline-color: transparent;
+	transition: outline-color 500ms ease;
 	outline-offset: calc(0px - var(--outline-size));
 	outline-style: solid;
 	outline-width: var(--outline-size);
-}
 
-.puzzle-tile_reveal {
-	outline-color: transparent;
+	.puzzle-image_show-grid & {
+		outline-color: var(--grid-lines-colour);
+	}
 }
 
 .puzzle-tile[data-id="9"] {
-	opacity: 0;
+	opacity: 1;
+	transition: opacity 500ms ease;
 
-	&.puzzle-tile_reveal {
-		opacity: 1;
+	.puzzle-image_show-grid & {
+		opacity: 0;
+	}
+
+	[data-active="true"] & {
+		transition: none;
 	}
 }
 

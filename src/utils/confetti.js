@@ -1,10 +1,10 @@
 // Confetti.js.org
 export const fireConfetti = () => {
-	const duration = 8 * 1000,
+	const duration = 5 * 1000,
 		animationEnd = Date.now() + duration,
 		defaults = {
-			startVelocity: 20,
-			spread: 260,
+			startVelocity: 30,
+			spread: 280,
 			ticks: 40,
 			zIndex: 0,
 		};

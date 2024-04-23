@@ -1,6 +1,6 @@
 import { batch } from "@preact/signals";
 import type { FunctionComponent } from "preact";
-import { isGameActive, showOptions } from "../../state/game";
+import { isGameActive, showGridLines, showOptions } from "../../state/game";
 import { currentTileOrder, gridTileCount } from "../../state/puzzle";
 import { handleViewTransition } from "../../utils/handleViewTransition";
 import { easy, hard, veryEasy } from "../../utils/puzzleOptions";
@@ -33,6 +33,7 @@ export const Layout: FunctionComponent = ({ children }) => {
 								batch(() => {
 									showOptions.value = false;
 									isGameActive.value = true;
+									showGridLines.value = true;
 									currentTileOrder.value = veryEasy;
 									setActiveTiles(gridTileCount.value);
 								});

@@ -6,4 +6,6 @@ export const selectedImage = signal<number | null>(null);
 
 export const isGameActive = signal(false);
 
+export const showGridLines = signal(false);
+
 export const showOptions = signal(true);

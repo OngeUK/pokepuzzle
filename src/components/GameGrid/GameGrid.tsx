@@ -1,5 +1,5 @@
 import { useEffect } from "preact/hooks";
-import { hasSolvedPuzzle, isGameActive } from "../../state/game";
+import { hasSolvedPuzzle, isGameActive, showGridLines } from "../../state/game";
 import { currentTileOrder } from "../../state/puzzle";
 import { fireConfetti } from "../../utils/confetti";
 import { isPuzzleSolved } from "../../utils/isPuzzleSolved";
@@ -12,9 +12,14 @@ export const GameGrid = () => {
 
 		if (isGameActive.value && hasSolvedPuzzle.value) {
 			isGameActive.value = false;
+
+			setTimeout(() => {
+				showGridLines.value = false;
+			}, 500);
+
 			setTimeout(() => {
 				fireConfetti();
-			}, 700);
+			}, 1000);
 		}
 	}, [currentTileOrder.value]);
 

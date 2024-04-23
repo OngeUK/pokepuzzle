@@ -31,12 +31,6 @@ export const PuzzleTile = ({
 		currentTileOrder.value = currOrder;
 	};
 
-	const cssClass = {
-		class: `puzzle-tile${
-			hasSolvedPuzzle.value ? " puzzle-tile_reveal" : ""
-		}`,
-	};
-
 	const isDisabled =
 		hasSolvedPuzzle.value || !activeTiles.value?.includes(currentPosition);
 
@@ -52,9 +46,9 @@ export const PuzzleTile = ({
 		<button
 			data-id={correctPosition}
 			data-id-current={currentPosition}
+			class="puzzle-tile"
 			{...(!isDisabled && { onClick: handleClick })}
 			{...{ disabled: isDisabled }}
-			{...cssClass}
 		/>
 	);
 };

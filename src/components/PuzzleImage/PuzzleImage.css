@@ -14,8 +14,12 @@
 	view-transition-name: puzzle-image;
 }
 
-::view-transition-old(puzzle-image),
-::view-transition-new(puzzle-image) {
+.container_full .puzzle-image.puzzle-image_show-grid {
+	view-transition-name: puzzle-image-active;
+}
+
+::view-transition-old(puzzle-image-active),
+::view-transition-new(puzzle-image-active) {
 	animation-delay: 100ms;
-	animation-duration: 0; // TODO for back to home
+	animation-duration: 0;
 }
