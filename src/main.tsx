@@ -14,3 +14,13 @@ const App = () => {
 };
 
 render(<App />, document.querySelector("body")!);
+
+if ("serviceWorker" in navigator) {
+	window.addEventListener("load", () => {
+		navigator.serviceWorker
+			.register("https://pokepuzzle.onge.uk/sw.js")
+			.catch((error) => {
+				console.error("Registration failed: ", error);
+			});
+	});
+}

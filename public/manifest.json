@@ -1,0 +1,23 @@
+{
+	"name": "Poké Puzzle",
+	"short_name": "Poké Puzzle",
+	"start_url": "https://pokepuzzle.onge.uk",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#ffcc03",
+	"theme_color": "#ffcc03",
+	"icons": [
+		{
+			"src": "https://pokepuzzle.onge.uk/icon.svg",
+			"type": "image/svg+xml",
+			"sizes": "512x512",
+			"purpose": "any"
+		},
+		{
+			"src": "https://pokepuzzle.onge.uk/icon.svg",
+			"type": "image/svg+xml",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	]
+}
